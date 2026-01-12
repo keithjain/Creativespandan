@@ -1,0 +1,119 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@theme inline {
+  --color-background: hsl(40 20% 98%);
+  --color-foreground: hsl(0 0% 15%);
+  --color-card: hsl(40 20% 98%);
+  --color-card-foreground: hsl(0 0% 15%);
+  --color-popover: hsl(40 20% 98%);
+  --color-popover-foreground: hsl(0 0% 15%);
+  --color-primary: hsl(0 0% 15%);
+  --color-primary-foreground: hsl(40 20% 98%);
+  --color-secondary: hsl(40 10% 94%);
+  --color-secondary-foreground: hsl(0 0% 15%);
+  --color-muted: hsl(40 10% 94%);
+  --color-muted-foreground: hsl(0 0% 40%);
+  --color-accent: hsl(40 10% 94%);
+  --color-accent-foreground: hsl(0 0% 15%);
+  --color-destructive: hsl(0 50% 50%);
+  --color-destructive-foreground: hsl(40 20% 98%);
+  --color-border: hsl(0 0% 85%);
+  --color-input: hsl(0 0% 85%);
+  --color-ring: hsl(0 0% 15%);
+  
+  --font-serif: "Lora", serif;
+  --font-sans: "Lora", serif; /* Intentional override for this specific design */
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply font-serif antialiased bg-background text-foreground;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif font-normal tracking-tight;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  /* Custom spacing utility for editorial feel */
+  .section-spacing {
+    @apply py-16 md:py-24;
+  }
+  
+  /* Subtle separator line */
+  .editorial-divider {
+    @apply w-12 h-px bg-foreground/20 my-8;
+  }
+
+  /* Hero section density */
+  .hero h1 {
+    margin-bottom: 10px;
+  }
+
+  .hero p {
+    margin-top: 0;
+  }
+
+  /* Hero divider spacing */
+  .hero-divider {
+    margin-top: 48px;
+  }
+
+  /* Hero copy styles */
+  .hero-copy {
+    max-width: 720px;
+  }
+
+  .hero-primary {
+    margin: 0;
+    font-weight: 500;
+  }
+
+  .hero-secondary {
+    margin: 6px 0 0 0;
+    opacity: 0.85;
+  }
+
+  /* Hero diagram system */
+  .hero-diagram {
+    margin-top: 14px;
+    max-width: 720px;
+  }
+
+  .hero-diagram svg {
+    display: block;
+    margin-left: 0;
+  }
+
+  .hero-diagram text {
+    font-family: inherit;
+    font-size: 14px;
+    letter-spacing: 0.04em;
+    fill: currentColor;
+  }
+
+  .hero-diagram line,
+  .hero-diagram polyline {
+    stroke: currentColor;
+    stroke-width: 1.5;
+    fill: none;
+  }
+
+  @media (max-width: 480px) {
+    .hero-diagram svg {
+      height: 60px;
+    }
+
+    .hero-diagram text {
+      font-size: 13px;
+    }
+  }
+}
